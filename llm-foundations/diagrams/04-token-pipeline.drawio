@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="claude-code" agent="claude-code-drawio-skill" version="24.7.17" type="device">
+  <diagram name="一次 token 生成" id="token-pipeline">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1040" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value="一次 token 的生成过程，以及两种「向量」的区别" style="text;html=1;fontSize=22;fontStyle=1;align=center;verticalAlign=middle;fontColor=#1a1a1a" vertex="1" parent="1">
+          <mxGeometry x="40" y="18" width="1120" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="input" value="输入文本：「苹果公司发布了」" style="rounded=1;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=13" vertex="1" parent="1">
+          <mxGeometry x="100" y="80" width="440" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="s1" value="① Token 化&lt;br/&gt;&lt;font color=&quot;#555555&quot; size=&quot;1&quot;&gt;文本 → token id：苹果 / 公司 / 发布 / 了&lt;/font&gt;" style="rounded=1;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="100" y="160" width="440" height="62" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2" value="② Token Embedding（查表，固定）&lt;br/&gt;&lt;font color=&quot;#555555&quot; size=&quot;1&quot;&gt;每个 token → 3584 维向量，同一个词永远同一行&lt;/font&gt;" style="rounded=1;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="100" y="254" width="440" height="62" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3" value="③ Transformer × 28 层&lt;br/&gt;&lt;font color=&quot;#555555&quot; size=&quot;1&quot;&gt;隐藏状态融入上下文：「苹果」变成 Apple Inc.&lt;/font&gt;" style="rounded=1;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="100" y="348" width="440" height="62" as="geometry"/>
+        </mxCell>
+        <mxCell id="s4" value="④ Q / K / V（注意力）&lt;br/&gt;&lt;font color=&quot;#555555&quot; size=&quot;1&quot;&gt;Q 我在找什么 · K 我的标签 · V 我的内容（GQA 只存 4 份）&lt;/font&gt;" style="rounded=1;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="100" y="442" width="440" height="62" as="geometry"/>
+        </mxCell>
+        <mxCell id="s5" value="⑤ Logits&lt;br/&gt;&lt;font color=&quot;#555555&quot; size=&quot;1&quot;&gt;词表 152K 维分数：新 9.2 · 产 7.8 · i 6.5 ...&lt;/font&gt;" style="rounded=1;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="100" y="536" width="440" height="62" as="geometry"/>
+        </mxCell>
+        <mxCell id="s6" value="⑥ 采样&lt;br/&gt;&lt;font color=&quot;#555555&quot; size=&quot;1&quot;&gt;按 temperature / top_p 选出一个 token&lt;/font&gt;" style="rounded=1;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="100" y="630" width="440" height="62" as="geometry"/>
+        </mxCell>
+        <mxCell id="output" value="输出：「新」→ 追加到序列，作为下一轮的输入" style="rounded=1;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="100" y="724" width="440" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e-in-s1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1" edge="1" parent="1" source="input" target="s1">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="320" y="144"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="e-s1-s2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1" edge="1" parent="1" source="s1" target="s2">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="320" y="238"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="e-s2-s3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1" edge="1" parent="1" source="s2" target="s3">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="320" y="332"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="e-s3-s4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1" edge="1" parent="1" source="s3" target="s4">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="320" y="426"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="e-s4-s5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1" edge="1" parent="1" source="s4" target="s5">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="320" y="520"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="e-s5-s6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1" edge="1" parent="1" source="s5" target="s6">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="320" y="614"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="e-s6-out" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1" edge="1" parent="1" source="s6" target="output">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="320" y="708"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="e-loop" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;dashed=1;fontSize=11" edge="1" parent="1" source="output" target="s1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="60" y="752"/>
+              <mxPoint x="60" y="191"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="vec" value="两种「向量」别混" style="rounded=1;html=1;fillColor=#f5f5f5;strokeColor=#9673a6;strokeWidth=2;verticalAlign=top;fontSize=15;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="620" y="80" width="520" height="380" as="geometry"/>
+        </mxCell>
+        <mxCell id="inner" value="内部向量（模型里）&lt;br/&gt;&lt;font color=&quot;#555555&quot; size=&quot;1&quot;&gt;权重表 + 隐藏状态，服务于「预测下一个 token」&lt;/font&gt;" style="rounded=1;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="640" y="120" width="480" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="outer" value="外部向量（RAG 用）&lt;br/&gt;&lt;font color=&quot;#555555&quot; size=&quot;1&quot;&gt;embedding 模型把句子映射成向量，服务于「检索」&lt;/font&gt;" style="rounded=1;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="640" y="220" width="480" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="same" value="相同：都是数字数组；语义越近，向量距离越小&lt;br/&gt;不同：内部向量参与生成，外部向量参与查找" style="rounded=1;html=1;fillColor=#ffffff;strokeColor=#999999;fontSize=12;align=left;spacingLeft=12" vertex="1" parent="1">
+          <mxGeometry x="640" y="320" width="480" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="analogy" value="vector(国王) − vector(男人) + vector(女人) ≈ vector(女王)" style="text;html=1;fontSize=11;align=center;fontColor=#555555" vertex="1" parent="1">
+          <mxGeometry x="620" y="400" width="520" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="rag" value="外部向量的流程" style="rounded=1;html=1;fillColor=#f5f5f5;strokeColor=#82b366;verticalAlign=top;fontSize=14;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="620" y="490" width="520" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1" value="文档 → 切片" style="rounded=1;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="640" y="530" width="220" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2" value="每段 → 向量" style="rounded=1;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="900" y="530" width="220" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3" value="存入向量库" style="rounded=1;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="900" y="600" width="220" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="r4" value="查询 → 同一个 embedding 模型 → 向量" style="rounded=1;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="640" y="600" width="220" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="r5" value="余弦相似度找最近的几段" style="rounded=1;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="640" y="675" width="480" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="r6" value="把这几段原文塞进 LLM 的 prompt" style="rounded=1;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="640" y="735" width="480" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-r1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1" edge="1" parent="1" source="r1" target="r2">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="880" y="553"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="e-r2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1" edge="1" parent="1" source="r2" target="r3">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1010" y="588"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="e-r3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1" edge="1" parent="1" source="r3" target="r5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1010" y="697"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-r4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1" edge="1" parent="1" source="r4" target="r5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="750" y="697"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-r5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1" edge="1" parent="1" source="r5" target="r6">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="880" y="727"/></Array></mxGeometry>
+        </mxCell>
+
+        <mxCell id="temp" value="temperature 速记：T=0 永远选最高分（工具 / JSON 用 0~0.3）；T 越高越随机（创作 0.9+）" style="rounded=1;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=left;spacingLeft=12" vertex="1" parent="1">
+          <mxGeometry x="620" y="820" width="520" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="loop-note" value="循环：每生成一个 token 重复一次" style="text;html=1;fontSize=11;align=left;verticalAlign=middle;fontColor=#555555" vertex="1" parent="1">
+          <mxGeometry x="60" y="790" width="300" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="注意：以上都是单 token 的视角。用户看到的一段话，是这个循环重复 N 次的结果" style="rounded=1;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;align=left;spacingLeft=12" vertex="1" parent="1">
+          <mxGeometry x="100" y="830" width="440" height="64" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

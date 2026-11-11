@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="claude-code" agent="claude-code-drawio-skill" version="24.7.17" type="device">
+  <diagram name="LLM 概念区分" id="llm-landscape">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1020" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value="生成式 AI 与 LLM：概念边界与改进手段" style="text;html=1;fontSize=22;fontStyle=1;align=center;verticalAlign=middle;fontColor=#1a1a1a" vertex="1" parent="1">
+          <mxGeometry x="40" y="18" width="1120" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="genai" value="生成式 AI（Generative AI）&lt;br/&gt;&lt;font color=&quot;#555555&quot; size=&quot;1&quot;&gt;产出新内容：文本 / 图像 / 音频 / 视频&lt;/font&gt;" style="rounded=1;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=15;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="400" y="80" width="400" height="64" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="llm" value="LLM 大语言模型&lt;br/&gt;&lt;font color=&quot;#555555&quot; size=&quot;1&quot;&gt;NLP 领域 · 普适、大而全面&lt;/font&gt;" style="rounded=1;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="180" y="190" width="380" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="slm" value="SLM 小语言模型&lt;br/&gt;&lt;font color=&quot;#555555&quot; size=&quot;1&quot;&gt;聚焦专业领域 · 小而高效&lt;/font&gt;" style="rounded=1;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="640" y="190" width="380" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e-genai-llm" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1" edge="1" parent="1" source="genai" target="llm">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="370" y="160"/>
+              <mxPoint x="370" y="190"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-genai-slm" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1" edge="1" parent="1" source="genai" target="slm">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="830" y="160"/>
+              <mxPoint x="830" y="190"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="evo" value="LLM 演进" style="rounded=1;html=1;fillColor=#f5f5f5;strokeColor=#666666;verticalAlign=top;fontSize=13;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="100" y="300" width="1000" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="era1" value="早期阶段&lt;br/&gt;&lt;font color=&quot;#555555&quot; size=&quot;1&quot;&gt;统计语言模型 / 规则&lt;/font&gt;" style="rounded=1;html=1;fillColor=#ffffff;strokeColor=#999999;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="120" y="325" width="300" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="era2" value="Transformer 阶段 2017+&lt;br/&gt;&lt;font color=&quot;#555555&quot; size=&quot;1&quot;&gt;注意力机制 → GPT 路线&lt;/font&gt;" style="rounded=1;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="450" y="325" width="300" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="era3" value="多模态阶段 2020+&lt;br/&gt;&lt;font color=&quot;#555555&quot; size=&quot;1&quot;&gt;文本 + 图像 / 音频 / 视频&lt;/font&gt;" style="rounded=1;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="780" y="325" width="300" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-era1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1" edge="1" parent="1" source="era1" target="era2">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="435" y="353"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="e-era2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1" edge="1" parent="1" source="era2" target="era3">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="765" y="353"/></Array></mxGeometry>
+        </mxCell>
+
+        <mxCell id="work-title" value="LLM 处理一句话的三步" style="text;html=1;fontSize=13;fontStyle=1;align=left;fontColor=#1a1a1a" vertex="1" parent="1">
+          <mxGeometry x="100" y="425" width="400" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="step1" value="① Token 化&lt;br/&gt;&lt;font color=&quot;#555555&quot; size=&quot;1&quot;&gt;阅读文本，切成 token&lt;/font&gt;" style="rounded=1;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="100" y="455" width="280" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="step2" value="② 单词嵌入 / 矢量化&lt;br/&gt;&lt;font color=&quot;#555555&quot; size=&quot;1&quot;&gt;token → 向量，表达词间关系&lt;/font&gt;" style="rounded=1;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="460" y="455" width="280" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="step3" value="③ 语言模型 / 上下文建模&lt;br/&gt;&lt;font color=&quot;#555555&quot; size=&quot;1&quot;&gt;捕获上下文，预测下一个 token&lt;/font&gt;" style="rounded=1;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="820" y="455" width="280" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-step1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1" edge="1" parent="1" source="step1" target="step2">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="420" y="485"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="e-step2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1" edge="1" parent="1" source="step2" target="step3">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="780" y="485"/></Array></mxGeometry>
+        </mxCell>
+
+        <mxCell id="use-title" value="三种使用形态" style="text;html=1;fontSize=13;fontStyle=1;align=left;fontColor=#1a1a1a" vertex="1" parent="1">
+          <mxGeometry x="100" y="540" width="400" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="use1" value="即用型&lt;br/&gt;&lt;font color=&quot;#555555&quot; size=&quot;1&quot;&gt;直接提问，不改模型&lt;/font&gt;" style="rounded=1;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="100" y="570" width="280" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="use2" value="可扩展&lt;br/&gt;&lt;font color=&quot;#555555&quot; size=&quot;1&quot;&gt;在基础模型上继续训练 / 微调&lt;/font&gt;" style="rounded=1;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="460" y="570" width="280" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="use3" value="基于基础模型的应用&lt;br/&gt;&lt;font color=&quot;#555555&quot; size=&quot;1&quot;&gt;Prompt / RAG / 工具编排&lt;/font&gt;" style="rounded=1;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="820" y="570" width="280" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="base-note" value="基础模型（直接使用，改 prompt / 检索）　vs　专用模型（微调参数，改权重）—— 后者才改变模型本身" style="rounded=1;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;align=center" vertex="1" parent="1">
+          <mxGeometry x="100" y="648" width="1000" height="42" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="table-title" value="改进预训练模型：四种手段的核心区别" style="text;html=1;fontSize=14;fontStyle=1;align=left;fontColor=#1a1a1a" vertex="1" parent="1">
+          <mxGeometry x="80" y="710" width="600" height="26" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="h1" value="手段" style="rounded=0;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="80" y="745" width="170" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="h2" value="改权重？" style="rounded=0;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="250" y="745" width="140" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="h3" value="用外部数据？" style="rounded=0;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="390" y="745" width="180" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="h4" value="主要解决" style="rounded=0;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="570" y="745" width="220" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="h5" value="典型场景" style="rounded=0;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="790" y="745" width="300" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r1c1" value="Prompt Engineering" style="rounded=0;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="80" y="785" width="170" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1c2" value="否" style="rounded=0;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="250" y="785" width="140" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1c3" value="否" style="rounded=0;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="390" y="785" width="180" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1c4" value="用人类语言引导输出" style="rounded=0;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="570" y="785" width="220" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1c5" value="快速试错、角色与格式约束" style="rounded=0;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="790" y="785" width="300" height="52" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r2c1" value="Grounding" style="rounded=0;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="80" y="837" width="170" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2c2" value="否" style="rounded=0;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="250" y="837" width="140" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2c3" value="是：关联真实数据 / 知识" style="rounded=0;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="390" y="837" width="180" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2c4" value="减少幻觉、增强理解" style="rounded=0;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="570" y="837" width="220" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2c5" value="事实性回答、企业知识关联" style="rounded=0;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="790" y="837" width="300" height="52" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r3c1" value="RAG" style="rounded=0;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="80" y="889" width="170" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3c2" value="否" style="rounded=0;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="250" y="889" width="140" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3c3" value="是：检索外部知识库" style="rounded=0;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="390" y="889" width="180" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3c4" value="用私有 / 最新知识生成" style="rounded=0;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="570" y="889" width="220" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3c5" value="问答、对话、文档助手" style="rounded=0;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="790" y="889" width="300" height="52" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r4c1" value="Fine-tuning" style="rounded=0;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="80" y="941" width="170" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="r4c2" value="是" style="rounded=0;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="250" y="941" width="140" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="r4c3" value="是：特定领域数据继续训练" style="rounded=0;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="390" y="941" width="180" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="r4c4" value="改变模型行为、领域适配" style="rounded=0;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="570" y="941" width="220" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="r4c5" value="风格、术语、固定任务" style="rounded=0;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="790" y="941" width="300" height="52" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

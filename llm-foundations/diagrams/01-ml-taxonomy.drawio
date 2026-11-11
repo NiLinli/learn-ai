@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="claude-code" agent="claude-code-drawio-skill" version="24.7.17" type="device">
+  <diagram name="ML 概念区分" id="ml-taxonomy">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value="机器学习：监督式 vs 非监督式" style="text;html=1;fontSize=22;fontStyle=1;align=center;verticalAlign=middle;fontColor=#1a1a1a" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="1120" height="44" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="root" value="机器学习&lt;br/&gt;&lt;font color=&quot;#555555&quot; size=&quot;1&quot;&gt;1990s+ · 从数据中学习规律&lt;/font&gt;" style="rounded=1;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=16;fontStyle=1;verticalAlign=middle" vertex="1" parent="1">
+          <mxGeometry x="430" y="90" width="300" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="data" value="数据&lt;br/&gt;&lt;font color=&quot;#555555&quot; size=&quot;1&quot;&gt;观测值 + 特征&lt;/font&gt;" style="rounded=1;html=1;fillColor=#e1d5e7;strokeColor=#9673a6" vertex="1" parent="1">
+          <mxGeometry x="200" y="180" width="160" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="model" value="模型&lt;br/&gt;&lt;font color=&quot;#555555&quot; size=&quot;1&quot;&gt;找出数据间关系的数学模型&lt;/font&gt;" style="rounded=1;html=1;fillColor=#e1d5e7;strokeColor=#9673a6" vertex="1" parent="1">
+          <mxGeometry x="440" y="180" width="160" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="predict" value="预测&lt;br/&gt;&lt;font color=&quot;#555555&quot; size=&quot;1&quot;&gt;识别新数据是什么&lt;/font&gt;" style="rounded=1;html=1;fillColor=#e1d5e7;strokeColor=#9673a6" vertex="1" parent="1">
+          <mxGeometry x="680" y="180" width="160" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e-root-data" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1" edge="1" parent="1" source="root" target="data">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="280" y="146"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-root-model" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1" edge="1" parent="1" source="root" target="model">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="520" y="146"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-root-predict" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1" edge="1" parent="1" source="root" target="predict">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="760" y="146"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-data-model" value="训练" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=11" edge="1" parent="1" source="data" target="model">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="400" y="205"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="e-model-predict" value="使用" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=11" edge="1" parent="1" source="model" target="predict">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="640" y="205"/></Array></mxGeometry>
+        </mxCell>
+
+        <mxCell id="decision" value="训练数据&lt;br/&gt;有标签吗？" style="rhombus;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="470" y="290" width="220" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-model-decision" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1" edge="1" parent="1" source="model" target="decision">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="520" y="260"/>
+              <mxPoint x="580" y="260"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="sup" value="监督式机器学习&lt;br/&gt;&lt;font color=&quot;#555555&quot; size=&quot;1&quot;&gt;数据 + 特征 + 已知标签&lt;/font&gt;" style="rounded=1;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;verticalAlign=top;fontSize=15;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="60" y="450" width="480" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="unsup" value="非监督式机器学习&lt;br/&gt;&lt;font color=&quot;#555555&quot; size=&quot;1&quot;&gt;数据 + 特征，没有标签&lt;/font&gt;" style="rounded=1;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;verticalAlign=top;fontSize=15;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="660" y="450" width="480" height="300" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e-sup" value="有标签（Yes）" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=11" edge="1" parent="1" source="decision" target="sup">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="300" y="340"/>
+              <mxPoint x="300" y="450"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-unsup" value="无标签（No）" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=11" edge="1" parent="1" source="decision" target="unsup">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="900" y="340"/>
+              <mxPoint x="900" y="450"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="sup-desc" value="目标：确定特征 x 与标签 y 之间的关系，用来预测未知标签" style="text;html=1;fontSize=11;align=left;verticalAlign=middle;fontColor=#333333" vertex="1" parent="1">
+          <mxGeometry x="80" y="487" width="440" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="reg" value="回归&lt;br/&gt;&lt;font color=&quot;#555555&quot; size=&quot;1&quot;&gt;标签是数值 → 预测数量&lt;/font&gt;" style="rounded=1;html=1;fillColor=#ffffff;strokeColor=#82b366" vertex="1" parent="1">
+          <mxGeometry x="90" y="530" width="200" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="cls" value="分类&lt;br/&gt;&lt;font color=&quot;#555555&quot; size=&quot;1&quot;&gt;标签是类别 → 预测属于哪类&lt;/font&gt;" style="rounded=1;html=1;fillColor=#ffffff;strokeColor=#82b366" vertex="1" parent="1">
+          <mxGeometry x="310" y="530" width="200" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="cls2" value="二元分类 / 多类分类" style="rounded=1;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="310" y="610" width="200" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="metrics" value="评估指标&lt;br/&gt;&lt;font color=&quot;#555555&quot; size=&quot;1&quot;&gt;准确率 · 精度 · 召回率 · F1&lt;/font&gt;" style="rounded=1;html=1;fillColor=#ffffff;strokeColor=#82b366" vertex="1" parent="1">
+          <mxGeometry x="90" y="610" width="200" height="66" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-cls2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1" edge="1" parent="1" source="cls" target="cls2">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="410" y="598"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="e-metrics" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;dashed=1" edge="1" parent="1" source="cls" target="metrics">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="300" y="558"/>
+              <mxPoint x="300" y="643"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="unsup-desc" value="目标：确定观测值特征之间的关系（结构）" style="text;html=1;fontSize=11;align=left;verticalAlign=middle;fontColor=#333333" vertex="1" parent="1">
+          <mxGeometry x="680" y="487" width="440" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="cluster-goal" value="发现结构：相似的东西聚在一起" style="rounded=1;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="680" y="535" width="440" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="cluster" value="聚类&lt;br/&gt;&lt;font color=&quot;#555555&quot; size=&quot;1&quot;&gt;把观测值分成离散组，但不与标签关联&lt;/font&gt;" style="rounded=1;html=1;fillColor=#ffffff;strokeColor=#9673a6" vertex="1" parent="1">
+          <mxGeometry x="680" y="610" width="440" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-cluster" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1" edge="1" parent="1" source="cluster-goal" target="cluster">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="900" y="597"/></Array></mxGeometry>
+        </mxCell>
+
+        <mxCell id="note" value="生成式 AI 不是「第四种范式」：LLM 仍是机器学习模型，只是任务从「判断 / 分组」变成「生成下一个 token」→ 见 02" style="rounded=1;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=left;spacingLeft=12" vertex="1" parent="1">
+          <mxGeometry x="60" y="790" width="1080" height="56" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

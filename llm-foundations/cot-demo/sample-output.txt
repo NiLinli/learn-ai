@@ -1,0 +1,180 @@
+CoT 对照实验
+模型：qwen2.5
+问题：小明有 3 盒铅笔，每盒 12 支。他给了同学 7 支，又买了 2 盒，每盒 10 支。现在有多少支？
+期望答案：49
+温度：0.2
+thinking：关
+
+============ plain（直接回答） ============
+--- 原始请求 JSON ---
+{
+  "model": "qwen2.5",
+  "messages": [
+    {
+      "role": "system",
+      "content": "直接给出最终答案，不要解释。"
+    },
+    {
+      "role": "user",
+      "content": "小明有 3 盒铅笔，每盒 12 支。他给了同学 7 支，又买了 2 盒，每盒 10 支。现在有多少支？"
+    }
+  ],
+  "stream": false,
+  "options": {
+    "temperature": 0.2
+  }
+}
+
+--- 原始响应 JSON ---
+{
+  "model": "qwen2.5",
+  "created_at": "2026-11-11T08:43:45.446812Z",
+  "message": {
+    "role": "assistant",
+    "content": "35支"
+  },
+  "done": true,
+  "done_reason": "stop",
+  "total_duration": 127785375,
+  "load_duration": 3317291,
+  "prompt_eval_count": 66,
+  "prompt_eval_cached_count": 65,
+  "prompt_eval_duration": 36824000,
+  "eval_count": 4,
+  "eval_duration": 79592000
+}
+
+--- 原始 message.content（未加工） ---
+35支
+--- 原始 message.content 结束 ---
+
+--- 解析结果（仅用于自动判定） ---
+解析答案：35.0    期望：49    ✗ 错误
+
+============ zero-shot-cot（零样本 CoT） ============
+--- 原始请求 JSON ---
+{
+  "model": "qwen2.5",
+  "messages": [
+    {
+      "role": "system",
+      "content": "你是一个严谨的助手。请一步一步思考，先写出计算过程，再给结论。最后一行严格输出：答案：<结果>"
+    },
+    {
+      "role": "user",
+      "content": "小明有 3 盒铅笔，每盒 12 支。他给了同学 7 支，又买了 2 盒，每盒 10 支。现在有多少支？"
+    }
+  ],
+  "stream": false,
+  "options": {
+    "temperature": 0.2
+  }
+}
+
+--- 原始响应 JSON ---
+{
+  "model": "qwen2.5",
+  "created_at": "2026-11-11T08:43:51.282574Z",
+  "message": {
+    "role": "assistant",
+    "content": "为了解决这个问题，我们分步骤来计算。\n\n1. **计算小明原有的铅笔数量**：\n   - 小明有 3 盒铅笔，每盒 12 支，所以原有的铅笔数量是 \\(3 \\times 12 = 36\\) 支。\n\n2. **计算小明给同学后的铅笔数量**：\n   - 小明给了同学 7 支铅笔，所以剩下的铅笔数量是 \\(36 - 7 = 29\\) 支。\n\n3. **计算小明买的新铅笔数量**：\n   - 小明又买了 2 盒铅笔，每盒 10 支，所以新买的铅笔数量是 \\(2 \\times 10 = 20\\) 支。\n\n4. **计算小明现在的总铅笔数量**：\n   - 将剩下的铅笔数量与新买的铅笔数量相加，即 \\(29 + 20 = 49\\) 支。\n\n答案：49"
+  },
+  "done": true,
+  "done_reason": "stop",
+  "total_duration": 5834021334,
+  "load_duration": 762167,
+  "prompt_eval_count": 86,
+  "prompt_eval_cached_count": 3,
+  "prompt_eval_duration": 305829000,
+  "eval_count": 221,
+  "eval_duration": 5523732000
+}
+
+--- 原始 message.content（未加工） ---
+为了解决这个问题，我们分步骤来计算。
+
+1. **计算小明原有的铅笔数量**：
+   - 小明有 3 盒铅笔，每盒 12 支，所以原有的铅笔数量是 \(3 \times 12 = 36\) 支。
+
+2. **计算小明给同学后的铅笔数量**：
+   - 小明给了同学 7 支铅笔，所以剩下的铅笔数量是 \(36 - 7 = 29\) 支。
+
+3. **计算小明买的新铅笔数量**：
+   - 小明又买了 2 盒铅笔，每盒 10 支，所以新买的铅笔数量是 \(2 \times 10 = 20\) 支。
+
+4. **计算小明现在的总铅笔数量**：
+   - 将剩下的铅笔数量与新买的铅笔数量相加，即 \(29 + 20 = 49\) 支。
+
+答案：49
+--- 原始 message.content 结束 ---
+
+--- 解析结果（仅用于自动判定） ---
+解析答案：49.0    期望：49    ✓ 正确
+
+============ few-shot-cot（few-shot CoT） ============
+--- 原始请求 JSON ---
+{
+  "model": "qwen2.5",
+  "messages": [
+    {
+      "role": "system",
+      "content": "你是一个严谨的助手。请按照示例的格式回答：先写计算过程，最后一行严格输出：答案：<结果>"
+    },
+    {
+      "role": "user",
+      "content": "小红有 4 盒橡皮，每盒 6 块。她用掉了 5 块，又买了 1 盒 8 块。现在有多少块？"
+    },
+    {
+      "role": "assistant",
+      "content": "原来有 4×6=24 块。用掉 5 块，剩 24−5=19 块。又买 8 块，19+8=27 块。答案：27"
+    },
+    {
+      "role": "user",
+      "content": "书架上有 5 排书，每排 9 本。借走 12 本，又放回 3 本。现在有多少本？"
+    },
+    {
+      "role": "assistant",
+      "content": "原来有 5×9=45 本。借走 12 本，剩 45−12=33 本。放回 3 本，33+3=36 本。答案：36"
+    },
+    {
+      "role": "user",
+      "content": "小明有 3 盒铅笔，每盒 12 支。他给了同学 7 支，又买了 2 盒，每盒 10 支。现在有多少支？"
+    }
+  ],
+  "stream": false,
+  "options": {
+    "temperature": 0.2
+  }
+}
+
+--- 原始响应 JSON ---
+{
+  "model": "qwen2.5",
+  "created_at": "2026-11-11T08:43:53.720273Z",
+  "message": {
+    "role": "assistant",
+    "content": "原来有 3×12=36 支。给了同学 7 支，剩 36−7=29 支。又买了 2×10=20 支。现在有 29+20=49 支。答案：49"
+  },
+  "done": true,
+  "done_reason": "stop",
+  "total_duration": 2436409791,
+  "load_duration": 536375,
+  "prompt_eval_count": 296,
+  "prompt_eval_cached_count": 10,
+  "prompt_eval_duration": 832411000,
+  "eval_count": 64,
+  "eval_duration": 1599883000
+}
+
+--- 原始 message.content（未加工） ---
+原来有 3×12=36 支。给了同学 7 支，剩 36−7=29 支。又买了 2×10=20 支。现在有 29+20=49 支。答案：49
+--- 原始 message.content 结束 ---
+
+--- 解析结果（仅用于自动判定） ---
+解析答案：49.0    期望：49    ✓ 正确
+
+============ 汇总 ============
+模式               解析答案       正确
+plain            35.0       ✗
+zero-shot-cot    49.0       ✓
+few-shot-cot     49.0       ✓

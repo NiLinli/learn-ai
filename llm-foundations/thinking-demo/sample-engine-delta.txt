@@ -1,0 +1,439 @@
+
+────────── 请求 1：raw + think=false，拿 Engine 原文 ──────────
+{
+  "model": "qwen3:0.6b",
+  "prompt": "<|im_start|>user\n3 加 4 等于多少？<|im_end|>\n<|im_start|>assistant\n",
+  "raw": true,
+  "think": false,
+  "stream": true,
+  "options": {
+    "temperature": 0.2,
+    "num_predict": 500
+  }
+}
+
+────────── 请求 2：/api/chat + think=true，看服务层切好的字段 ──────────
+{
+  "model": "qwen3:0.6b",
+  "messages": [
+    {
+      "role": "user",
+      "content": "3 加 4 等于多少？"
+    }
+  ],
+  "stream": false,
+  "think": true,
+  "options": {
+    "temperature": 0.2
+  }
+}
+
+────────── Engine 原始 delta（共 340 块，逐块打印） ──────────
+[000] "<think>"  ← 开标签
+[001] "\n"
+[002] "Okay"
+[003] ","
+[004] " so"
+[005] " the"
+[006] " question"
+[007] " is"
+[008] " "
+[009] "3"
+[010] " plus"
+[011] " "
+[012] "4"
+[013] " equals"
+[014] " how"
+[015] " much"
+[016] "?"
+[017] " Hmm"
+[018] ","
+[019] " let"
+[020] "'s"
+[021] " see"
+[022] "."
+[023] " I"
+[024] " need"
+[025] " to"
+[026] " figure"
+[027] " out"
+[028] " the"
+[029] " answer"
+[030] "."
+[031] " First"
+[032] ","
+[033] " I"
+[034] " remember"
+[035] " that"
+[036] " in"
+[037] " basic"
+[038] " arithmetic"
+[039] ","
+[040] " addition"
+[041] " is"
+[042] " the"
+[043] " operation"
+[044] " that"
+[045] " combines"
+[046] " two"
+[047] " numbers"
+[048] "."
+[049] " So"
+[050] " "
+[051] "3"
+[052] " plus"
+[053] " "
+[054] "4"
+[055] " should"
+[056] " be"
+[057] " straightforward"
+[058] ".\n\n"
+[059] "Wait"
+[060] ","
+[061] " let"
+[062] " me"
+[063] " think"
+[064] " again"
+[065] "."
+[066] " When"
+[067] " you"
+[068] " add"
+[069] " two"
+[070] " numbers"
+[071] ","
+[072] " you"
+[073] " combine"
+[074] " them"
+[075] "."
+[076] " So"
+[077] " "
+[078] "3"
+[079] " plus"
+[080] " "
+[081] "4"
+[082] "..."
+[083] " Let"
+[084] " me"
+[085] " break"
+[086] " it"
+[087] " down"
+[088] "."
+[089] " "
+[090] "3"
+[091] " plus"
+[092] " "
+[093] "3"
+[094] " is"
+[095] " "
+[096] "6"
+[097] ","
+[098] " and"
+[099] " then"
+[100] " adding"
+[101] " another"
+[102] " "
+[103] "1"
+[104] " to"
+[105] " that"
+[106] " gives"
+[107] " "
+[108] "7"
+[109] "."
+[110] " So"
+[111] " the"
+[112] " total"
+[113] " should"
+[114] " be"
+[115] " "
+[116] "7"
+[117] "."
+[118] " But"
+[119] " wait"
+[120] ","
+[121] " is"
+[122] " there"
+[123] " any"
+[124] " trick"
+[125] " here"
+[126] "?"
+[127] " Like"
+[128] ","
+[129] " maybe"
+[130] " in"
+[131] " some"
+[132] " contexts"
+[133] ","
+[134] " numbers"
+[135] " are"
+[136] " considered"
+[137] " as"
+[138] " vectors"
+[139] " or"
+[140] " something"
+[141] "?"
+[142] " No"
+[143] ","
+[144] " that"
+[145] " doesn"
+[146] "'t"
+[147] " make"
+[148] " sense"
+[149] "."
+[150] " In"
+[151] " standard"
+[152] " math"
+[153] ","
+[154] " addition"
+[155] " is"
+[156] " just"
+[157] " adding"
+[158] " the"
+[159] " numbers"
+[160] ".\n\n"
+[161] "Alternatively"
+[162] ","
+[163] " maybe"
+[164] " I"
+[165] " should"
+[166] " use"
+[167] " the"
+[168] " standard"
+[169] " algorithm"
+[170] "."
+[171] " Adding"
+[172] " "
+[173] "3"
+[174] " and"
+[175] " "
+[176] "4"
+[177] ":"
+[178] " starting"
+[179] " from"
+[180] " the"
+[181] " right"
+[182] "most"
+[183] " digit"
+[184] "."
+[185] " "
+[186] "3"
+[187] " in"
+[188] " the"
+[189] " ones"
+[190] " place"
+[191] " plus"
+[192] " "
+[193] "4"
+[194] " is"
+[195] " "
+[196] "7"
+[197] "."
+[198] " Then"
+[199] " the"
+[200] " tens"
+[201] " place"
+[202] " is"
+[203] " "
+[204] "0"
+[205] ","
+[206] " so"
+[207] " "
+[208] "0"
+[209] " plus"
+[210] " "
+[211] "0"
+[212] " is"
+[213] " "
+[214] "0"
+[215] "."
+[216] " So"
+[217] " the"
+[218] " result"
+[219] " is"
+[220] " "
+[221] "0"
+[222] "7"
+[223] ","
+[224] " which"
+[225] " is"
+[226] " "
+[227] "7"
+[228] "."
+[229] " Yeah"
+[230] ","
+[231] " that"
+[232] "'s"
+[233] " the"
+[234] " same"
+[235] " as"
+[236] " before"
+[237] "."
+[238] " So"
+[239] " I"
+[240] " think"
+[241] " the"
+[242] " answer"
+[243] " is"
+[244] " "
+[245] "7"
+[246] ".\n\n"
+[247] "But"
+[248] " wait"
+[249] ","
+[250] " let"
+[251] " me"
+[252] " check"
+[253] " if"
+[254] " there"
+[255] "'s"
+[256] " any"
+[257] " other"
+[258] " way"
+[259] " people"
+[260] " might"
+[261] " approach"
+[262] " this"
+[263] "."
+[264] " For"
+[265] " example"
+[266] ","
+[267] " using"
+[268] " a"
+[269] " calculator"
+[270] "."
+[271] " If"
+[272] " I"
+[273] " type"
+[274] " "
+[275] "3"
+[276] " +"
+[277] " "
+[278] "4"
+[279] ","
+[280] " the"
+[281] " result"
+[282] " is"
+[283] " definitely"
+[284] " "
+[285] "7"
+[286] "."
+[287] " So"
+[288] " no"
+[289] ","
+[290] " there"
+[291] "'s"
+[292] " no"
+[293] " trick"
+[294] " here"
+[295] "."
+[296] " It"
+[297] "'s"
+[298] " a"
+[299] " simple"
+[300] " addition"
+[301] " problem"
+[302] "."
+[303] " I"
+[304] " don"
+[305] "'t"
+[306] " think"
+[307] " there"
+[308] "'s"
+[309] " any"
+[310] " hidden"
+[311] " meaning"
+[312] " or"
+[313] " context"
+[314] " here"
+[315] " that"
+[316] " would"
+[317] " make"
+[318] " it"
+[319] " different"
+[320] "."
+[321] " So"
+[322] " the"
+[323] " answer"
+[324] " should"
+[325] " be"
+[326] " "
+[327] "7"
+[328] ".\n"
+[329] "</think>"  ← 闭标签
+[330] "\n\n"
+[331] "3"
+[332] " 加"
+[333] " "
+[334] "4"
+[335] " 等"
+[336] "于"
+[337] " "
+[338] "7"
+[339] "。"
+
+────────── 拼起来的原始文本 ──────────
+<think>
+Okay, so the question is 3 plus 4 equals how much? Hmm, let's see. I need to figure out the answer. First, I remember that in basic arithmetic, addition is the operation that combines two numbers. So 3 plus 4 should be straightforward.
+
+Wait, let me think again. When you add two numbers, you combine them. So 3 plus 4... Let me break it down. 3 plus 3 is 6, and then adding another 1 to that gives 7. So the total should be 7. But wait, is there any trick here? Like, maybe in some contexts, numbers are considered as vectors or something? No, that doesn't make sense. In standard math, addition is just adding the numbers.
+
+Alternatively, maybe I should use the standard algorithm. Adding 3 and 4: starting from the rightmost digit. 3 in the ones place plus 4 is 7. Then the tens place is 0, so 0 plus 0 is 0. So the result is 07, which is 7. Yeah, that's the same as before. So I think the answer is 7.
+
+But wait, let me check if there's any other way people might approach this. For example, using a calculator. If I type 3 + 4, the result is definitely 7. So no, there's no trick here. It's a simple addition problem. I don't think there's any hidden meaning or context here that would make it different. So the answer should be 7.
+</think>
+
+3 加 4 等于 7。
+
+────────── 本地 splitter 重放同一串 delta ──────────
+delta 数：340
+状态变化：2 次
+[000] "<think>"：before → thinking，输出 ""
+[329] "</think>"：thinking → answer，输出 ""
+
+前 3 块进入 thinking 的 delta：
+[001] 原始 "\n" → thinking 输出 "\n"
+[002] 原始 "Okay" → thinking 输出 "Okay"
+[003] 原始 "," → thinking 输出 ","
+
+前 3 块进入 content 的 delta：
+[330] 原始 "\n\n" → content 输出 "\n\n"
+[331] 原始 "3" → content 输出 "3"
+[332] 原始 " 加" → content 输出 " 加"
+
+thinking 字符数：1238
+content 字符数：13
+
+────────── splitter 还原出的 thinking ──────────
+
+Okay, so the question is 3 plus 4 equals how much? Hmm, let's see. I need to figure out the answer. First, I remember that in basic arithmetic, addition is the operation that combines two numbers. So 3 plus 4 should be straightforward.
+
+Wait, let me think again. When you add two numbers, you combine them. So 3 plus 4... Let me break it down. 3 plus 3 is 6, and then adding another 1 to that gives 7. So the total should be 7. But wait, is there any trick here? Like, maybe in some contexts, numbers are considered as vectors or something? No, that doesn't make sense. In standard math, addition is just adding the numbers.
+
+Alternatively, maybe I should use the standard algorithm. Adding 3 and 4: starting from the rightmost digit. 3 in the ones place plus 4 is 7. Then the tens place is 0, so 0 plus 0 is 0. So the result is 07, which is 7. Yeah, that's the same as before. So I think the answer is 7.
+
+But wait, let me check if there's any other way people might approach this. For example, using a calculator. If I type 3 + 4, the result is definitely 7. So no, there's no trick here. It's a simple addition problem. I don't think there's any hidden meaning or context here that would make it different. So the answer should be 7.
+
+
+────────── splitter 还原出的 content ──────────
+
+
+3 加 4 等于 7。
+
+────────── 服务层 /api/chat 返回的 thinking ──────────
+Okay, so I need to figure out what 3 plus 4 equals. Let me think. First, I remember that in basic arithmetic, addition is when you add two numbers together. So 3 plus 4 should be straightforward. Let me break it down. 3 is the first number, and 4 is the second. Adding them together would be 3 + 4. 
+
+Wait, is there any trick here? Like, maybe some special numbers or something? No, I don't think so. It's just a simple addition problem. Let me check with another method. Maybe using the commutative property? Oh right, the commutative property says that addition is associative and commutative, meaning you can add 3 and 4 in any order. So 3 + 4 is the same as 4 + 3. That just confirms it's the same result. 
+
+Another way to think about it is to count. If I have 3 objects and then add another 4, how many do I have? Well, 3 plus 4 would be 7. Let me visualize it. If I have 3 apples, and I add 4 more apples, that's 7 apples in total. Yeah, that makes sense. So 3 plus 4 equals 7. 
+
+I don't think there's any other way this could be interpreted. Maybe if there was a different context, like in a math problem with more steps, but the question is pretty straightforward. So the answer should be 7.
+
+
+────────── 服务层 /api/chat 返回的 content ──────────
+3 加 4 等于 7。
+
+────────── 对比 ──────────
+Engine 原始文本字符数：1266
+splitter thinking / content：1238 / 13
+服务层 thinking / content：1200 / 11
+两次调用各自采样，文本不会逐字相同；关键是标签被吞掉、两段被分到不同字段。
+eval_count（chat）：333

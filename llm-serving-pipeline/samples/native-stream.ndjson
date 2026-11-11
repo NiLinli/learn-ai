@@ -1,0 +1,11 @@
+{"model":"qwen2.5","created_at":"2026-11-11T02:44:46.71887Z","message":{"role":"assistant","content":"token"},"done":false}
+{"model":"qwen2.5","created_at":"2026-11-11T02:44:46.745217Z","message":{"role":"assistant","content":"是一种"},"done":false}
+{"model":"qwen2.5","created_at":"2026-11-11T02:44:46.771314Z","message":{"role":"assistant","content":"代表"},"done":false}
+{"model":"qwen2.5","created_at":"2026-11-11T02:44:46.797738Z","message":{"role":"assistant","content":"身份"},"done":false}
+{"model":"qwen2.5","created_at":"2026-11-11T02:44:46.841085Z","message":{"role":"assistant","content":"或"},"done":false}
+{"model":"qwen2.5","created_at":"2026-11-11T02:44:46.86709Z","message":{"role":"assistant","content":"权限"},"done":false}
+{"model":"qwen2.5","created_at":"2026-11-11T02:44:46.89412Z","message":{"role":"assistant","content":"的"},"done":false}
+{"model":"qwen2.5","created_at":"2026-11-11T02:44:46.932144Z","message":{"role":"assistant","content":"数字"},"done":false}
+{"model":"qwen2.5","created_at":"2026-11-11T02:44:46.971523Z","message":{"role":"assistant","content":"票据"},"done":false}
+{"model":"qwen2.5","created_at":"2026-11-11T02:44:46.998558Z","message":{"role":"assistant","content":"。"},"done":false}
+{"model":"qwen2.5","created_at":"2026-11-11T02:44:47.028963Z","message":{"role":"assistant","content":""},"done":true,"done_reason":"stop","total_duration":341835625,"load_duration":756166,"prompt_eval_count":40,"prompt_eval_cached_count":39,"prompt_eval_duration":28420000,"eval_count":11,"eval_duration":309088000}

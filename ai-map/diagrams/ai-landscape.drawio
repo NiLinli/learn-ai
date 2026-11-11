@@ -1,0 +1,185 @@
+<mxfile host="app.diagrams.net" modified="2026-11-11T00:00:00.000Z" agent="Qoder" version="24.0.0" type="device">
+  <diagram id="ai-landscape" name="AI 学习架构图">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1160" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value="AI 学习架构图：层级、边界与能力迁移" style="text;html=1;align=left;verticalAlign=middle;fontSize=24;fontStyle=1;fontColor=#0F172A" vertex="1" parent="1">
+          <mxGeometry x="40" y="22" width="900" height="38" as="geometry"/>
+        </mxCell>
+        <mxCell id="subtitle" value="截至 2026-11 · 只记录可验证能力；观察中条目见 README 时间线" style="text;html=1;align=left;verticalAlign=middle;fontSize=12;fontColor=#64748B" vertex="1" parent="1">
+          <mxGeometry x="40" y="62" width="1000" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="read-hint" value="读法：左侧从下往上定位知识层级，右侧看该层能力正被谁吸收" style="text;html=1;align=right;verticalAlign=middle;fontSize=12;fontColor=#475569" vertex="1" parent="1">
+          <mxGeometry x="1020" y="45" width="640" height="28" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="layer-l5" value="&lt;b&gt;L5 应用与治理&lt;/b&gt;&lt;br/&gt;Eval · Observability · 安全 · 成本 · UX&lt;br/&gt;当前：待建（评测 / 可观测性）" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=14;fontSize=14;fillColor=#F3E8FF;strokeColor=#9333EA;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="40" y="150" width="760" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="layer-l4" value="&lt;b&gt;L4 行为与编排&lt;/b&gt;&lt;br/&gt;Agent loop · Planning · 工具 · MCP · 多智能体&lt;br/&gt;当前：待建（Agent 主题）" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=14;fontSize=14;fillColor=#FFEDD5;strokeColor=#EA580C;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="40" y="278" width="760" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="layer-l3" value="&lt;b&gt;L3 知识与上下文&lt;/b&gt;&lt;br/&gt;Prompt · RAG · Memory · Tools&lt;br/&gt;当前：llm-foundations / rag-demo" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=14;fontSize=14;fillColor=#DCFCE7;strokeColor=#16A34A;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="40" y="406" width="760" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="layer-l2" value="&lt;b&gt;L2 推理与服务&lt;/b&gt;&lt;br/&gt;Renderer · Engine · Parser · 协议 · 部署&lt;br/&gt;当前：llm-serving-pipeline" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=14;fontSize=14;fillColor=#CCFBF1;strokeColor=#0D9488;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="40" y="534" width="760" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="layer-l1" value="&lt;b&gt;L1 模型与生成&lt;/b&gt;&lt;br/&gt;Token · Embedding · Transformer · 采样 · 上下文&lt;br/&gt;当前：llm-foundations" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=14;fontSize=14;fillColor=#DBEAFE;strokeColor=#2563EB;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="40" y="662" width="760" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="layer-l0" value="&lt;b&gt;L0 基础&lt;/b&gt;&lt;br/&gt;数学 · 概率 · 硬件 · 显存&lt;br/&gt;当前：math-foundations（余弦相似度）" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=14;fontSize=14;fillColor=#F1F5F9;strokeColor=#64748B;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="40" y="790" width="760" height="110" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="panel" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#CBD5E1;dashed=1" vertex="1" parent="1">
+          <mxGeometry x="840" y="150" width="800" height="750" as="geometry"/>
+        </mxCell>
+        <mxCell id="panel-title" value="能力迁移：通用能力持续上收，应用层上移" style="text;html=1;align=left;verticalAlign=middle;fontSize=16;fontStyle=1;fontColor=#0F172A" vertex="1" parent="1">
+          <mxGeometry x="860" y="165" width="760" height="32" as="geometry"/>
+        </mxCell>
+        <mxCell id="panel-sub" value="过去由应用层实现 → 现在由模型 / 运行时提供 → 应用层保留领域责任" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontColor=#64748B" vertex="1" parent="1">
+          <mxGeometry x="860" y="198" width="760" height="22" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="th1" value="能力" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontSize=12;fontStyle=1;fillColor=#E2E8F0;strokeColor=#CBD5E1" vertex="1" parent="1">
+          <mxGeometry x="860" y="230" width="160" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="th2" value="现在被吸收到" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontSize=12;fontStyle=1;fillColor=#E2E8F0;strokeColor=#CBD5E1" vertex="1" parent="1">
+          <mxGeometry x="1020" y="230" width="250" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="th3" value="应用层还剩什么" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontSize=12;fontStyle=1;fillColor=#E2E8F0;strokeColor=#CBD5E1" vertex="1" parent="1">
+          <mxGeometry x="1270" y="230" width="350" height="34" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r1c1" value="&lt;b&gt;Prompt 模板&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=8;fontSize=11;fillColor=#FFFFFF;strokeColor=#CBD5E1" vertex="1" parent="1">
+          <mxGeometry x="860" y="264" width="160" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1c2" value="模型指令遵循、系统卡" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=8;fontSize=11;fillColor=#FFFFFF;strokeColor=#CBD5E1" vertex="1" parent="1">
+          <mxGeometry x="1020" y="264" width="250" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1c3" value="约束、评测、领域知识" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=8;fontSize=11;fillColor=#FFFFFF;strokeColor=#CBD5E1" vertex="1" parent="1">
+          <mxGeometry x="1270" y="264" width="350" height="75" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r2c1" value="&lt;b&gt;RAG 编排&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=8;fontSize=11;fillColor=#F1F5F9;strokeColor=#CBD5E1" vertex="1" parent="1">
+          <mxGeometry x="860" y="339" width="160" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2c2" value="内置文件 / 网页检索" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=8;fontSize=11;fillColor=#F1F5F9;strokeColor=#CBD5E1" vertex="1" parent="1">
+          <mxGeometry x="1020" y="339" width="250" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2c3" value="私有数据、ACL、新鲜度、引用、领域评测" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=8;fontSize=11;fillColor=#F1F5F9;strokeColor=#CBD5E1" vertex="1" parent="1">
+          <mxGeometry x="1270" y="339" width="350" height="75" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r3c1" value="&lt;b&gt;工具调用与解析&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=8;fontSize=11;fillColor=#FFFFFF;strokeColor=#CBD5E1" vertex="1" parent="1">
+          <mxGeometry x="860" y="414" width="160" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3c2" value="原生 function calling、structured outputs" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=8;fontSize=11;fillColor=#FFFFFF;strokeColor=#CBD5E1" vertex="1" parent="1">
+          <mxGeometry x="1020" y="414" width="250" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3c3" value="审批、重试、可观测、业务编排" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=8;fontSize=11;fillColor=#FFFFFF;strokeColor=#CBD5E1" vertex="1" parent="1">
+          <mxGeometry x="1270" y="414" width="350" height="75" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r4c1" value="&lt;b&gt;Agent loop / planning&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=8;fontSize=11;fillColor=#F1F5F9;strokeColor=#CBD5E1" vertex="1" parent="1">
+          <mxGeometry x="860" y="489" width="160" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="r4c2" value="推理模型、agent SDK、computer use" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=8;fontSize=11;fillColor=#F1F5F9;strokeColor=#CBD5E1" vertex="1" parent="1">
+          <mxGeometry x="1020" y="489" width="250" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="r4c3" value="领域工作流、多租户、合规、人工接管" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=8;fontSize=11;fillColor=#F1F5F9;strokeColor=#CBD5E1" vertex="1" parent="1">
+          <mxGeometry x="1270" y="489" width="350" height="75" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r5c1" value="&lt;b&gt;Memory&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=8;fontSize=11;fillColor=#FFFFFF;strokeColor=#CBD5E1" vertex="1" parent="1">
+          <mxGeometry x="860" y="564" width="160" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="r5c2" value="模型内置记忆" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=8;fontSize=11;fillColor=#FFFFFF;strokeColor=#CBD5E1" vertex="1" parent="1">
+          <mxGeometry x="1020" y="564" width="250" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="r5c3" value="领域 schema、隐私、删除" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=8;fontSize=11;fillColor=#FFFFFF;strokeColor=#CBD5E1" vertex="1" parent="1">
+          <mxGeometry x="1270" y="564" width="350" height="75" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r6c1" value="&lt;b&gt;Eval / observability&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=8;fontSize=11;fillColor=#F1F5F9;strokeColor=#CBD5E1" vertex="1" parent="1">
+          <mxGeometry x="860" y="639" width="160" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="r6c2" value="平台 trace / eval 工具" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=8;fontSize=11;fillColor=#F1F5F9;strokeColor=#CBD5E1" vertex="1" parent="1">
+          <mxGeometry x="1020" y="639" width="250" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="r6c3" value="ground truth、领域指标、回归" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=8;fontSize=11;fillColor=#F1F5F9;strokeColor=#CBD5E1" vertex="1" parent="1">
+          <mxGeometry x="1270" y="639" width="350" height="75" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="panel-note" value="被吸收的是通用编排和协议细节；&lt;br/&gt;留下的是领域知识、权限责任、评测与运维。" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=12;fontSize=12;fillColor=#FFFBEB;strokeColor=#F59E0B;fontColor=#78350F" vertex="1" parent="1">
+          <mxGeometry x="860" y="730" width="760" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="panel-foot" value="判断依据：官方发布说明、模型卡、API 文档、本地实测。传闻只进「观察中」。" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontColor=#64748B" vertex="1" parent="1">
+          <mxGeometry x="860" y="815" width="760" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="timeline-title" value="能力吸收时间线（2017–2026）" style="text;html=1;align=left;verticalAlign=middle;fontSize=16;fontStyle=1;fontColor=#0F172A" vertex="1" parent="1">
+          <mxGeometry x="40" y="910" width="700" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="timeline-sub" value="橙色 = 观察中；其余为已发布 / 已普及" style="text;html=1;align=right;verticalAlign=middle;fontSize=11;fontColor=#64748B" vertex="1" parent="1">
+          <mxGeometry x="1060" y="913" width="600" height="24" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="timeline-line" style="endArrow=classic;html=1;strokeColor=#64748B;strokeWidth=2;rounded=0" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="60" y="1035" as="sourcePoint"/>
+            <mxPoint x="1670" y="1035" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="dot-2017" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#475569;strokeColor=#475569" vertex="1" parent="1">
+          <mxGeometry x="124" y="1029" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="dot-2020" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#475569;strokeColor=#475569" vertex="1" parent="1">
+          <mxGeometry x="364" y="1029" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="dot-2022" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#475569;strokeColor=#475569" vertex="1" parent="1">
+          <mxGeometry x="604" y="1029" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="dot-2023" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#475569;strokeColor=#475569" vertex="1" parent="1">
+          <mxGeometry x="844" y="1029" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="dot-2024" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#2563EB;strokeColor=#2563EB" vertex="1" parent="1">
+          <mxGeometry x="1084" y="1029" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="dot-2025" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#2563EB;strokeColor=#2563EB" vertex="1" parent="1">
+          <mxGeometry x="1314" y="1029" width="12" height="12" as="geometry"/>
+        </mxCell>
+        <mxCell id="dot-2026" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#F59E0B;strokeColor=#F59E0B" vertex="1" parent="1">
+          <mxGeometry x="1544" y="1029" width="12" height="12" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="tl-2017" value="&lt;b&gt;2017&lt;/b&gt;&lt;br/&gt;Transformer" style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontColor=#334155" vertex="1" parent="1">
+          <mxGeometry x="20" y="960" width="220" height="58" as="geometry"/>
+        </mxCell>
+        <mxCell id="tl-2020" value="&lt;b&gt;2020&lt;/b&gt;&lt;br/&gt;GPT-3 / ICL" style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontColor=#334155" vertex="1" parent="1">
+          <mxGeometry x="260" y="1060" width="220" height="58" as="geometry"/>
+        </mxCell>
+        <mxCell id="tl-2022" value="&lt;b&gt;2022&lt;/b&gt;&lt;br/&gt;ChatGPT / RLHF" style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontColor=#334155" vertex="1" parent="1">
+          <mxGeometry x="500" y="960" width="220" height="58" as="geometry"/>
+        </mxCell>
+        <mxCell id="tl-2023" value="&lt;b&gt;2023&lt;/b&gt;&lt;br/&gt;Function Calling" style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontColor=#334155" vertex="1" parent="1">
+          <mxGeometry x="740" y="1060" width="220" height="58" as="geometry"/>
+        </mxCell>
+        <mxCell id="tl-2024" value="&lt;b&gt;2024&lt;/b&gt;&lt;br/&gt;结构化输出 / 长上下文 / MCP" style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontColor=#334155" vertex="1" parent="1">
+          <mxGeometry x="980" y="960" width="220" height="58" as="geometry"/>
+        </mxCell>
+        <mxCell id="tl-2025" value="&lt;b&gt;2025&lt;/b&gt;&lt;br/&gt;Agent SDK / Computer Use" style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontColor=#334155" vertex="1" parent="1">
+          <mxGeometry x="1210" y="1060" width="220" height="58" as="geometry"/>
+        </mxCell>
+        <mxCell id="tl-2026" value="&lt;b&gt;2026&lt;/b&gt;&lt;br/&gt;长任务 Agent（观察中）" style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontColor=#C2410C" vertex="1" parent="1">
+          <mxGeometry x="1440" y="960" width="220" height="58" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="claude-code" agent="claude-code-drawio-skill" version="24.7.17" type="device">
+  <diagram name="模型解剖" id="model-anatomy">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1060" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value="同一个模型的两面：磁盘上的静态文件 vs 运行时的显存对象" style="text;html=1;fontSize=22;fontStyle=1;align=center;verticalAlign=middle;fontColor=#1a1a1a" vertex="1" parent="1">
+          <mxGeometry x="40" y="18" width="1120" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="static" value="静态：磁盘上的模型文件" style="rounded=1;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;verticalAlign=top;fontSize=15;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="60" y="85" width="500" height="580" as="geometry"/>
+        </mxCell>
+        <mxCell id="runtime" value="运行时：显存 + 计算" style="rounded=1;html=1;fillColor=#f5f5f5;strokeColor=#6c8ebf;strokeWidth=2;verticalAlign=top;fontSize=15;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="640" y="85" width="500" height="580" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="blueprint" value="架构蓝图（人定的超参数）" style="rounded=1;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="80" y="125" width="460" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="hyper" value="embedding 3584 · 层数 28 · KV 头 4 · 词表 152K" style="rounded=1;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="80" y="175" width="460" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="param" value="参数量 7.6B&lt;br/&gt;&lt;font color=&quot;#555555&quot; size=&quot;1&quot;&gt;有多少个数字（度量）&lt;/font&gt;" style="rounded=1;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="80" y="255" width="220" height="62" as="geometry"/>
+        </mxCell>
+        <mxCell id="weight" value="权重张量&lt;br/&gt;&lt;font color=&quot;#555555&quot; size=&quot;1&quot;&gt;数值是多少（内容）&lt;/font&gt;" style="rounded=1;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="320" y="255" width="220" height="62" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-blueprint-param" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1" edge="1" parent="1" source="hyper" target="param">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="190" y="235"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-blueprint-weight" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1" edge="1" parent="1" source="hyper" target="weight">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="430" y="235"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="quant" value="量化 Q4_K_M：每个权重用约 4 bit 存储" style="rounded=1;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="80" y="370" width="460" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="size" value="文件体积 ≈ 参数量 × 有效位宽 / 8 → 约 4.3GB" style="rounded=1;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="80" y="426" width="460" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="quant-note" value="量化只把数值变近似，不改变参数量" style="rounded=1;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="80" y="476" width="460" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-weight-quant" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1" edge="1" parent="1" source="weight" target="quant">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="430" y="345"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="meta" value="模型元信息（模型声明的能力）" style="rounded=1;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="80" y="540" width="460" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="meta-list" value="architecture · parameters · context length · quantization&lt;br/&gt;capabilities：completion / tools / vision / embedding / thinking / insert" style="rounded=1;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=11;align=left;spacingLeft=10" vertex="1" parent="1">
+          <mxGeometry x="80" y="590" width="460" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="load" value="加载权重到显存" style="rounded=1;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="660" y="125" width="460" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="kv" value="KV Cache&lt;br/&gt;&lt;font color=&quot;#555555&quot; size=&quot;1&quot;&gt;随上下文增长&lt;/font&gt;" style="rounded=1;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="660" y="190" width="220" height="66" as="geometry"/>
+        </mxCell>
+        <mxCell id="act" value="激活值 / 中间张量&lt;br/&gt;&lt;font color=&quot;#555555&quot; size=&quot;1&quot;&gt;每层计算临时占用&lt;/font&gt;" style="rounded=1;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="900" y="190" width="220" height="66" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-load-kv" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1" edge="1" parent="1" source="load" target="kv">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="770" y="175"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-load-act" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1" edge="1" parent="1" source="load" target="act">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1010" y="175"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="engine" value="推理引擎参数（运行时覆盖模型默认值）" style="rounded=1;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="660" y="290" width="460" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="engine-list" value="temperature · top_p · num_predict · context length" style="rounded=1;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="660" y="344" width="460" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="sample" value="采样 → 生成 token → 追加到序列" style="rounded=1;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="660" y="410" width="460" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-engine-sample" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1" edge="1" parent="1" source="engine-list" target="sample">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="890" y="397"/></Array></mxGeometry>
+        </mxCell>
+
+        <mxCell id="ctx-note" value="context length：取「架构上限」与「本次加载设置」中更小的那个" style="rounded=1;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;align=left;spacingLeft=12" vertex="1" parent="1">
+          <mxGeometry x="660" y="480" width="460" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="cap-note" value="能力（tools / vision 等）来自权重与模板的声明，不是运行时参数" style="rounded=1;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;align=left;spacingLeft=12" vertex="1" parent="1">
+          <mxGeometry x="660" y="542" width="460" height="48" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="stack-title" value="模型运行的分层" style="text;html=1;fontSize=14;fontStyle=1;align=left;fontColor=#1a1a1a" vertex="1" parent="1">
+          <mxGeometry x="160" y="700" width="400" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="l5" value="L5　应用与编排（Agent / 业务逻辑）" style="rounded=1;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="160" y="735" width="880" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="l4" value="L4　服务与 API（HTTP 接口 / 请求校验 / 流式输出）" style="rounded=1;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="160" y="791" width="880" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3" value="L3　推理引擎（批处理 / KV Cache / 采样）" style="rounded=1;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="160" y="847" width="880" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2" value="L2　算子与加速（矩阵运算 / Attention 加速）" style="rounded=1;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="160" y="903" width="880" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1" value="L1　硬件（GPU / 显存 / 互连）" style="rounded=1;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="160" y="959" width="880" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-l5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1" edge="1" parent="1" source="l5" target="l4">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="600" y="786"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="e-l4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1" edge="1" parent="1" source="l4" target="l3">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="600" y="842"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="e-l3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1" edge="1" parent="1" source="l3" target="l2">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="600" y="898"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="e-l2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1" edge="1" parent="1" source="l2" target="l1">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="600" y="954"/></Array></mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
